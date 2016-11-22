@@ -65,7 +65,15 @@ public class MainActivity extends AppCompatActivity {
         request.setTitle("title");
         request.setDescription("description");
         request.setAllowedOverRoaming(false);
+        //设置文件的保存的位置[三种方式]
+        //第一种
+        //file:///storage/emulated/0/Android/data/your-package/files/Download/update.apk
         request.setDestinationInExternalFilesDir(this, Environment.DIRECTORY_DOWNLOADS, "test.exe");
+        //第二种
+        //file:///storage/emulated/0/Download/update.apk
+        //request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, "update.apk");
+        //第三种 自定义文件路径
+        //request.setDestinationUri()
         return request;
     }
 

@@ -117,10 +117,10 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void onReceive(Context context, Intent intent) {
             String action = intent.getAction();
-            if (action == DownloadManager.ACTION_DOWNLOAD_COMPLETE) {
+            if (action.equals(DownloadManager.ACTION_DOWNLOAD_COMPLETE)) {
                 long id = intent.getLongExtra(DownloadManager.EXTRA_DOWNLOAD_ID, -1);
                 Toast.makeText(MainActivity.this, id + " 下载已经完成！", Toast.LENGTH_SHORT).show();
-            } else if (action == DownloadManager.ACTION_NOTIFICATION_CLICKED) {
+            } else if (action.equals(DownloadManager.ACTION_NOTIFICATION_CLICKED)) {
                 long[] ids = intent.getLongArrayExtra(DownloadManager.EXTRA_NOTIFICATION_CLICK_DOWNLOAD_IDS);
                 //点击通知栏取消下载
                 downManager.remove(ids);
